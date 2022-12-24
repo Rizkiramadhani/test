@@ -1,24 +1,26 @@
 <?php
 
-	$data_id = $_SESSION["ses_id"];
+$data_id = $_SESSION["ses_id"];
 
-	$sql = $koneksi->query("select * from tb_pengguna where id_pengguna=$data_id");
-	while ($data= $sql->fetch_assoc()) {
+$sql = $koneksi->query("select * from tb_pengguna where id_pengguna=$data_id");
+while ($data = $sql->fetch_assoc()) {
 
-	$status=$data['status'];
-
+	$status = $data['status'];
 }
 ?>
 
-<?php if($status==1){ ?>
+
+
+
+<?php if ($status == 1) { ?>
 
 <div class="row">
 	<tbody>
 
 		<?php
-		$sql = $koneksi->query("select * from tb_calon");
-		while ($data= $sql->fetch_assoc()) {
-		?>
+			$sql = $koneksi->query("select * from tb_calon");
+			while ($data = $sql->fetch_assoc()) {
+			?>
 		<!-- Profile Image -->
 
 		<div class="col-md-4">
@@ -49,19 +51,20 @@
 
 		<!-- /.card -->
 		<?php
-              }
-            ?>
+			}
+			?>
 	</tbody>
 </div>
 
 <!-- /.card-body -->
-<?php }elseif ($status==0) { ?>
+<?php } elseif ($status == 0) { ?>
 
 <div class="alert alert-info alert-dismissible">
 	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 	<h4>
-		<i class="icon fas fa-info"></i>Info</h4>
+		<i class="icon fas fa-info"></i>Info
+	</h4>
 	<h3>Anda sudah menggukan Hak Suara dengan baik, Terimakasih.</h3>
 </div>
 
-<?php }  
+<?php }
